@@ -5,15 +5,20 @@ Personal Neovim configuration with Lazy, language servers, completion, formattin
 ## Configuration layout
 
 - `init.lua`: bootstraps Lazy, loads plugin groups, and selects Catppuccin.
-- `lua/core/options.lua`: editor options, persistent undo, indentation, and clipboard.
+- `lua/core/options.lua`: editor options, persistent undo, indentation, clipboard, and filetype-specific spell-checking.
 - `lua/core/keymaps.lua`: general editing and navigation mappings.
 - `lua/plugins/ide/`: Tree-sitter, LSP, completion, formatting, and LSP memory management.
 - `lua/plugins/ui/`: themes, statusline, notifications, command UI, and cursor effects.
 - `lua/plugins/`: remaining editing, search, Git, and file-management plugins.
-- `ftplugin/markdown.vim` and `ftplugin/tex.vim`: US English spell-checking.
 - `lazy-lock.json`: exact plugin revisions; keep this in Git for reproducible installs.
 
-Each plugin folder has an `init.lua` that returns its plugin specifications. The main configuration loads these with `require("plugins.ide")` and `require("plugins.ui")`.
+The `ide` and `ui` folders each have an `init.lua` that returns their plugin specifications. The main configuration loads these with `require("plugins.ide")` and `require("plugins.ui")`.
+
+### Markdown and LaTeX spell-checking
+
+Spell-checking is configured entirely in `lua/core/options.lua`; no separate `ftplugin/` folder is needed. The `WritingSpellcheck` autocommand runs on `FileType` for `markdown` and `tex`, enabling `spell` and setting `spelllang` to `en_us` locally.
+
+Use `]s` / `[s` to navigate spelling errors, `z=` for suggestions, and `zg` to add a word to your dictionary. To disable spell-checking in the current window temporarily, run `:setlocal nospell`; enable it again with `:setlocal spell`.
 
 ## Plugins
 

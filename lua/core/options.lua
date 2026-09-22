@@ -35,6 +35,15 @@ vim.o.undofile = true -- Save undo history (default: false)
 vim.o.writebackup = false -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited (default: true)
 
 -- UI
+vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('WritingSpellcheck', { clear = true }),
+    pattern = { 'markdown', 'tex' },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = 'en_us'
+    end,
+})
+
 vim.o.cursorline = false -- Highlight the current line (default: false)
 vim.o.showtabline = 0 -- Hide the top tab bar
 vim.o.pumheight = 10 -- Pop up menu height (default: 0)
