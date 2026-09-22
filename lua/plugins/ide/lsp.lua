@@ -1,6 +1,18 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          -- Type-only annotations need explicit triggers in addition to require().
+          { path = 'flash.nvim', words = { 'Flash%.' } },
+          { path = 'snacks.nvim', words = { 'snacks%.' } },
+          { path = 'conform.nvim', words = { 'conform%.' } },
+        },
+      },
+    },
     -- Automatically install LSPs and related tools to stdpath for Neovim
     { 'mason-org/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
     -- mason-lspconfig:
@@ -181,14 +193,8 @@ return {
             runtime = { version = 'LuaJIT' },
             workspace = {
               checkThirdParty = false,
-              -- Avoid indexing every installed plugin and old package directory.
-              library = {
-                vim.env.VIMRUNTIME .. '/lua',
-                vim.api.nvim_get_runtime_file('lua/lspconfig', false)[1],
-                require('lazy.core.config').plugins['flash.nvim'].dir .. '/lua',
-                require('lazy.core.config').plugins['snacks.nvim'].dir .. '/lua',
-                require('lazy.core.config').plugins['conform.nvim'].dir .. '/lua',
-              },
+              -- LazyDev supplies libraries for the Lua files currently open.
+              library = {},
             },
             diagnostics = {
               globals = { 'vim' },

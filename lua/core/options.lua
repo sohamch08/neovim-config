@@ -36,7 +36,7 @@ vim.o.writebackup = false -- If a file is being edited by another program (or wa
 
 -- UI
 vim.o.cursorline = false -- Highlight the current line (default: false)
-vim.o.showtabline = 2 -- Always show tabs (default: 1)
+vim.o.showtabline = 0 -- Hide the top tab bar
 vim.o.pumheight = 10 -- Pop up menu height (default: 0)
 vim.o.cmdheight = 1 -- More space in the Neovim command line for displaying messages (default: 1)
 vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default (default: 'auto')

@@ -8,7 +8,7 @@ return {
         enabled = true,
       },
       char = {
-        jump_labels = true,
+        jump_labels = false, -- Execute f/F/t/T motions without selecting a jump label.
       },
     },
   },

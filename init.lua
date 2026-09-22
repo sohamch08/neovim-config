@@ -18,7 +18,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("plugins.colorscheme"),
 	require("plugins.autopairs"),
 	require("plugins.oil"),
 	require("plugins.snacks"),
@@ -27,11 +26,10 @@ require("lazy").setup({
 	require("plugins.flash"),
 	require("plugins.list-formatter"),
 	require("plugins.comments"),
-	require("plugins.treesitter"),
+	require("plugins.ide"),
 	require("plugins.telescope"),
-	require("plugins.lsp"),
-	require("plugins.autocompletion"),
-	require("plugins.conform"),
 	require("plugins.gitsigns"),
+	require("plugins.misc"),
+	require("plugins.ui"),
 })
 vim.cmd("colorscheme catppuccin")

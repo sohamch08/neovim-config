@@ -16,6 +16,13 @@ return {
                 java = false, -- dont check treesitter on java
             },
         })
+        local Rule = require("nvim-autopairs.rule")
+        local cond = require("nvim-autopairs.conds")
+        autopairs.add_rules({
+            Rule("$", "$", { "tex", "plaintex" })
+                :with_cr(cond.none()),
+        })
+
         -- import nvim-autopairs completion functionality
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
         -- import nvim-cmp plugin (completions plugin)
