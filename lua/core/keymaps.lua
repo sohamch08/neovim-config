@@ -39,8 +39,6 @@ vim.keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear search hl", silent = t
 -- Unmaps Q in normal mode
 vim.keymap.set("n", "Q", "<nop>")
 
--- format without prettier using the built in
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Replace the word cursor is on globally
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
