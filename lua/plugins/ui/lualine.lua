@@ -15,6 +15,24 @@ return {
 			path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
 		}
 
+		local recording = {
+			function()
+				local register = vim.fn.reg_recording()
+				return register ~= "" and ("REC @" .. register) or ""
+			end,
+			color = { fg = "#F7768E", gui = "bold" },
+		}
+
+		vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+			group = vim.api.nvim_create_augroup("LualineRecording", { clear = true }),
+			callback = function()
+				-- RecordingLeave fires before reg_recording() has been cleared.
+				vim.schedule(function()
+					require("lualine").refresh({ place = { "statusline" } })
+				end)
+			end,
+		})
+
 		local hide_in_width = function()
 			return vim.fn.winwidth(0) > 100
 		end
@@ -52,12 +70,13 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { "branch" },
-				lualine_c = { filename },
+				lualine_c = { filename, recording },
 				lualine_x = {
+					{ "%S", type = "stl" },
 					diagnostics,
 					diff,
 					{ "encoding", cond = hide_in_width },
-					{ "filetype", cond = hide_in_width },
+					{ "filetype" },
 				},
 				lualine_y = { "location" },
 				lualine_z = {

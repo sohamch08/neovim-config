@@ -53,6 +53,8 @@ vim.opt.termguicolors = true -- Set termguicolors to enable highlight groups (de
 
 -- Misc
 vim.o.showmode = false -- We don't need to see things like -- INSERT -- anymore (default: true)
+vim.o.showcmd = true -- Show incomplete Normal-mode commands.
+vim.o.showcmdloc = 'statusline' -- Display them through Lualine's %S component.
 vim.o.whichwrap = 'bs<>[]hl' -- Which "horizontal" keys are allowed to travel to prev/next line (default: 'b,s')
 vim.o.numberwidth = 4 -- Set number column width to 2 {default 4} (default: 4)
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim. (default: '')

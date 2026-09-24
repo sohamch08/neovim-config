@@ -94,7 +94,7 @@ Conform uses Stylua for Lua; isort then Black for Python; prettierd or Prettier 
 | --- | --- |
 | `noice.nvim` | Command-line and message UI; normal messages use the mini view and warnings/errors use Notify. Noice LSP hover and signature UI are disabled. |
 | `nvim-notify` | Compact notification popups with slide animation. |
-| `lualine.nvim` | Statusline showing mode, branch, filename, diagnostics, diffs, file information, location, and progress; configured with the Nord statusline theme. |
+| `lualine.nvim` | Statusline showing mode, branch, filename, diagnostics, diffs, file information, location, progress, pending command keys, and a `REC @register` macro-recording indicator; configured with the Nord statusline theme. |
 | `modicator.nvim` | Changes cursor-line number colors according to editor mode. |
 | `smear-cursor.nvim` | Animated cursor trails, including Insert mode and window/buffer movement. |
 | `catppuccin` | Current editor colorscheme. |
@@ -289,6 +289,10 @@ These are documented as currently configured; no mappings were changed for this 
 - **`<leader>pc`** uses a fixed dotfiles path, not the active configuration directory discovered automatically.
 
 To see which mapping wins, use `:verbose nmap <leader>sh` (replace the key as needed). For buffer-local LSP mappings, run this from an attached code buffer.
+
+### Pending commands and macro recording
+
+Incomplete Normal-mode commands appear in the statusline (`showcmd` with `showcmdloc = "statusline"`). For example, `23` appears while typing `23G` and clears when `G` executes. Start recording with `qa` (register `a`, or choose another register); `REC @a` remains visible until you press `q` to stop. Use `@a` to replay it and `@@` to repeat the last replayed macro. These are built-in keys, not custom mappings.
 
 ## Useful built-in commands
 
