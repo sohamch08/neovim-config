@@ -144,6 +144,7 @@ return {
 		-- So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+		-- capabilities.general.positionEncodings = { "utf-8" }
 
 		-- Enable the following language servers
 		--
@@ -170,7 +171,13 @@ return {
 			-- No dedicated configs are listed for diff, regex, gitignore,
 			-- git_config, or rasi; these retain Tree-sitter highlighting.
 			ts_ls = {},
-			ruff = {},
+			ruff = {
+				capabilities = {
+					general = {
+						positionEncodings = { "utf-16" },
+					},
+				},
+			},
 			pylsp = {
 				settings = {
 					pylsp = {
