@@ -5,7 +5,7 @@
       "src": "https://github.com/okuuva/auto-save.nvim"
     },
     "blink": {
-      "rev": "10198f904da1e7f77aeb0368414f871568c0d898",
+      "rev": "788f589ae03172a8cdea912a8c448315219dc874",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink-lib": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "lspconfig": {
-      "rev": "45a3a444b710511c39abca3b60bb6e23a21e3de5",
+      "rev": "77b7432d4770d23b277d37923e5a08a442d8bb07",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "lualine": {
@@ -53,7 +53,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mason-lspconfig": {
-      "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
+      "rev": "a338f44149f5673882c32629697d67b0c0547aec",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     "mini": {
-      "rev": "295af26358628c8ba8f007ff6a7e0aec2f642a31",
+      "rev": "ed8683521996657ce774e5eec9d2f9b1b5ecef82",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "noice": {
@@ -113,7 +113,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim"
     },
     "treesitter": {
-      "rev": "ca581c3436fc2b236847f5b739ebc263739e5ca6",
+      "rev": "a2f694478be07f89c2d03cc17858a8745a400c4b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "vimade": {
