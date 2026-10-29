@@ -31,5 +31,8 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.misc"),
 	require("plugins.ui"),
+}, {
+	-- None of the configured plugins need LuaRocks.
+	rocks = { enabled = false },
 })
 vim.cmd("colorscheme catppuccin")
