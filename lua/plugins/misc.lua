@@ -18,4 +18,8 @@ return {
 		main = "colorizer",
 		opts = {},
 	},
+	{
+		"lambdalisue/vim-suda",
+		cmd = { "SudaRead", "SudaWrite" },
+	},
 }
